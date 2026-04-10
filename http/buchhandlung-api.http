@@ -1,0 +1,70 @@
+### Buchhandlung — local API (IntelliJ HTTP Client / VS Code REST Client)
+### Start the app, then run each request with the editor's "Run request" action.
+### Sample books: Modern Classic German Literature
+
+@baseUrl = http://localhost:8080
+
+### Home
+GET {{baseUrl}}/
+
+### Create book — Die Blechtrommel (Günter Grass)
+POST {{baseUrl}}/api/books
+Content-Type: application/json
+
+{
+  "title": "Die Blechtrommel",
+  "author": "Günter Grass",
+  "isbn": "978-3423135409",
+  "price": 16.99
+}
+
+### Create book — Der Vorleser (Bernhard Schlink)
+POST {{baseUrl}}/api/books
+Content-Type: application/json
+
+{
+  "title": "Der Vorleser",
+  "author": "Bernhard Schlink",
+  "isbn": "978-3257229530",
+  "price": 14.99
+}
+
+### Create book — Der Steppenwolf (Hermann Hesse)
+POST {{baseUrl}}/api/books
+Content-Type: application/json
+
+{
+  "title": "Der Steppenwolf",
+  "author": "Hermann Hesse",
+  "isbn": "978-3518380680",
+  "price": 13.99
+}
+
+### Find book by id
+GET {{baseUrl}}/api/books/1
+
+### Find book by id — not found
+GET {{baseUrl}}/api/books/1000000
+
+### Find all books
+GET {{baseUrl}}/api/books
+
+### Find books by author
+GET {{baseUrl}}/api/books/search?author=Bernhard%20Schlink
+
+### Update book by id (change id and body as needed)
+PUT {{baseUrl}}/api/books/1
+Content-Type: application/json
+
+{
+  "title": "Die Blechtrommel",
+  "author": "Günter Grass",
+  "isbn": "978-3423135409",
+  "price": 15.49
+}
+
+### Delete book by id
+DELETE {{baseUrl}}/api/books/1
+
+### Delete all books
+DELETE {{baseUrl}}/api/books
